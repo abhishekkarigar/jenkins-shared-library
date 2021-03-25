@@ -6,7 +6,7 @@ def call(String saywhat = "nothing"){
             """
         }
     }
-    else if() {
+    else if (saywhat == "hello") {
         script {
             sh """
                 echo hello alice
