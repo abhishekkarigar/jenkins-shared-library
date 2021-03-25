@@ -1,4 +1,4 @@
-def call(String appName, String buildNo) {
+def call(String appName) {
     script {
         withCredentials([usernamePassword(
            credentialsId: "dockerhub_id",
@@ -6,7 +6,7 @@ def call(String appName, String buildNo) {
            passwordVariable: "PASS"
         )]){
           sh "docker login -u $USER -p $PASS"
-          sh "docker build -t $USER/$appName:$buildNo ."
+          sh "docker build -t $USER/$appName:$BUILD_NUMBER ."
           sh "docker push $USER/$appName:$BUILD_NUMBER"
         }
     }
