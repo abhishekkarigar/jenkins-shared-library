@@ -1,7 +1,7 @@
 def call(String appName, String buildNo) {
     script {
         withCredentials([usernamePassword(
-           credentialsId: "docker",
+           credentialsId: "dockerhub_id",
            usernameVariable: "USER",
            passwordVariable: "PASS"
         )]){
